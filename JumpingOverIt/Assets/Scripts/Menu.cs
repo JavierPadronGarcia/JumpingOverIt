@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class Menu : MonoBehaviour
 {
@@ -11,16 +12,40 @@ public class Menu : MonoBehaviour
     public GameObject menuButton;
     public GameObject continueButton;
     public GameObject pausePanel;
+    public GameObject createGamePanel;
+    public GameObject loadGamePanel;
 
     private GameManager manager;
+    public SaveController saveController;
 
     private void Start()
     {
         manager = FindObjectOfType<GameManager>();
     }
+
     public void OnPlayButton ()
     {
         SceneManager.LoadScene(1);
+    }
+
+    public void NewGameButton()
+    {
+        createGamePanel.SetActive(true);
+    }
+
+    public void showLoadGamePanel()
+    {
+        loadGamePanel.SetActive(true);
+    }
+
+    public void CancelLoadGamePanel()
+    {
+        loadGamePanel.SetActive(false);
+    }
+
+    public void CancelGameCreation()
+    {
+        createGamePanel.SetActive(false);
     }
 
     public void QuitButton ()
@@ -37,7 +62,7 @@ public class Menu : MonoBehaviour
     {
         int ActiveSceneIndex = SceneManager.GetActiveScene().buildIndex;
 
-        Debug.Log(ActiveSceneIndex);
+        Debug.Log(ActiveSceneIndex + " " + manager.gamePaused);
 
         if (manager.gamePaused)
         {
@@ -50,12 +75,14 @@ public class Menu : MonoBehaviour
         else
         {
             SceneManager.LoadScene(2);
+            SaveController saveController = FindObjectOfType<SaveController>();
+            saveController.UpdateSave(manager.getSaveName());
         }
     }
 
     public void PauseGame()
     {
-        winText.SetActive(false);
+        Debug.Log(pauseText + " " + menuButton + " " + continueButton + " " + pausePanel);
         pauseText.SetActive(true);
         menuButton.SetActive(true);
         continueButton.SetActive(true);
@@ -64,7 +91,7 @@ public class Menu : MonoBehaviour
 
     public void ResumeGame()
     {
-        winText.SetActive(false);
+        Debug.Log(pauseText + " " + menuButton + " " + continueButton + " " + pausePanel);
         pauseText.SetActive(false);
         menuButton.SetActive(false);
         continueButton.SetActive(false);
@@ -88,4 +115,6 @@ public class Menu : MonoBehaviour
             menuButton.SetActive(true);
         }
     }
+
+    
 }

@@ -34,13 +34,13 @@ exports.findAll = (req, res) => {
 }
 
 exports.findOne = (req, res) => {
-  if (!req.params.saveName) {
+  if (!req.params.savename) {
     req.satus(400).send({
       message: "Content cannot be empty!"
     });
   }
 
-  Saves.findByPk(req.params.saveName).then(save => {
+  Saves.findByPk(req.params.savename).then(save => {
     req.send(save);
   }).catch(err => {
     req.status(500).send({
@@ -55,7 +55,7 @@ exports.update = (req, res) => {
     });
   }
 
-  const saveName = req.params.saveName;
+  const saveName = req.params.savename;
 
   Saves.update({ saveName: saveName, actualLevel: req.body.actualLevel },
     { where: { saveName: saveName } }).then(data => {
@@ -68,7 +68,7 @@ exports.update = (req, res) => {
 }
 
 exports.delete = (req, res) => {
-  const saveName = req.params.saveName;
+  const saveName = req.params.savename;
 
   Saves.destroy({ where: { saveName: saveName } }).then(() => {
     req.status(200).send({

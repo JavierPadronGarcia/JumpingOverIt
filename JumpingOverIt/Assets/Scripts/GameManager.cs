@@ -3,11 +3,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;
     public bool gamePaused = false;
+    private string saveName;
     Menu menu;
 
     // Start is called before the first frame update
@@ -29,6 +31,20 @@ public class GameManager : MonoBehaviour
         {
             this.ContinueGame();
         }
+        SceneManager.sceneLoaded += OnSceneLoaded;
+    }
+
+    void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        if (scene.buildIndex != 0)
+        {
+            menu = FindObjectOfType<Menu>();
+
+            if (menu != null)
+            {
+                ContinueGame();
+            }
+        }
     }
 
     void FixedUpdate()
@@ -47,6 +63,16 @@ public class GameManager : MonoBehaviour
             PauseGame();
         else
             ContinueGame();
+    }
+
+    public void setSaveName(string saveName)
+    {
+        this.saveName = saveName;
+    }
+
+    public string getSaveName()
+    {
+        return this.saveName;
     }
 
     public void PauseGame()
