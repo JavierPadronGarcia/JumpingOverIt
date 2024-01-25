@@ -59,11 +59,11 @@ public class SaveController : MonoBehaviour
         }
     }
 
-    public void UpdateSave(string saveName)
+    public void UpdateSave(string saveName, int level)
     {
         Save save = new();
         save.saveName = saveName;
-        save.actualLevel = SceneManager.GetActiveScene().buildIndex;
+        save.actualLevel = level;
 
         saveService.UpdateSave(save.saveName, save);
     }

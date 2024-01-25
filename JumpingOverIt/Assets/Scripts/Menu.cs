@@ -76,26 +76,24 @@ public class Menu : MonoBehaviour
         {
             SceneManager.LoadScene(2);
             SaveController saveController = FindObjectOfType<SaveController>();
-            saveController.UpdateSave(manager.getSaveName());
+            saveController.UpdateSave(manager.GetSaveName(), 2);
         }
     }
 
     public void PauseGame()
     {
-        Debug.Log(pauseText + " " + menuButton + " " + continueButton + " " + pausePanel);
-        pauseText.SetActive(true);
-        menuButton.SetActive(true);
-        continueButton.SetActive(true);
-        pausePanel.SetActive(true);
+        if (pauseText) pauseText.SetActive(true);
+        if (menuButton) menuButton.SetActive(true);
+        if (continueButton) continueButton.SetActive(true);
+        if (pausePanel) pausePanel.SetActive(true);
     }
 
     public void ResumeGame()
     {
-        Debug.Log(pauseText + " " + menuButton + " " + continueButton + " " + pausePanel);
-        pauseText.SetActive(false);
-        menuButton.SetActive(false);
-        continueButton.SetActive(false);
-        pausePanel.SetActive(false);
+        if (pauseText) pauseText.SetActive(false);
+        if (menuButton) menuButton.SetActive(false);
+        if (continueButton) continueButton.SetActive(false);
+        if (pausePanel) pausePanel.SetActive(false);
     }
 
     public void levelFinished(int level)

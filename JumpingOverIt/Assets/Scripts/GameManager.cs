@@ -27,7 +27,7 @@ public class GameManager : MonoBehaviour
 
         menu = FindObjectOfType<Menu>();
 
-        if(menu != null)
+        if(menu != null && SceneManager.GetActiveScene().buildIndex != 0)
         {
             this.ContinueGame();
         }
@@ -65,12 +65,12 @@ public class GameManager : MonoBehaviour
             ContinueGame();
     }
 
-    public void setSaveName(string saveName)
+    public void SetSaveName(string saveName)
     {
         this.saveName = saveName;
     }
 
-    public string getSaveName()
+    public string GetSaveName()
     {
         return this.saveName;
     }
@@ -84,6 +84,7 @@ public class GameManager : MonoBehaviour
         cameraInputController.enabled = false;
         Cursor.visible = true;
         Cursor.lockState = CursorLockMode.None;
+        GameManager.Instance.gamePaused = true;
         Debug.Log("Pausando");
     }
 
@@ -91,11 +92,12 @@ public class GameManager : MonoBehaviour
     {
         PlayerController playerController = FindObjectOfType<PlayerController>();
         CinemachineInputProvider cameraInputController = FindObjectOfType<CinemachineInputProvider>();
-        playerController.enabled = true;
-        cameraInputController.enabled = true;
+        if (playerController) playerController.enabled = true;
+        if(cameraInputController) cameraInputController.enabled = true;
         menu.ResumeGame();
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;
+        GameManager.Instance.gamePaused = false;
         Debug.Log("Reanudando");
     }
 }

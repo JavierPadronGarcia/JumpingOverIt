@@ -9,6 +9,7 @@ public class CardController : MonoBehaviour
     public string saveName;
     public int actualLevel;
     public TextMeshProUGUI SaveName;
+    public TextMeshProUGUI ActualLevel;
 
     private SaveService saveService;
 
@@ -27,7 +28,7 @@ public class CardController : MonoBehaviour
     {
         SceneManager.LoadScene(actualLevel);
         GameManager gameManager = FindObjectOfType<GameManager>();
-        gameManager.setSaveName(this.saveName);
+        gameManager.SetSaveName(this.saveName);
     }
 
     public void UpdateData(Save save)
@@ -35,5 +36,6 @@ public class CardController : MonoBehaviour
         this.saveName = save.saveName;
         SaveName.text = save.saveName;
         this.actualLevel = save.actualLevel;
+        ActualLevel.text = "Nivel: " + save.actualLevel.ToString();
     }
 }

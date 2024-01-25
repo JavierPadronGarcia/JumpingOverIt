@@ -16843,6 +16843,22 @@ PrefabInstance:
       propertyPath: m_Name
       value: Canvas
       objectReference: {fileID: 0}
+    - target: {fileID: 4012046602679445089, guid: 0ad645a1471d3c04c9f92e29300b717f, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5078435651764266677, guid: 0ad645a1471d3c04c9f92e29300b717f, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5101402033666771653, guid: 0ad645a1471d3c04c9f92e29300b717f, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6497200693529231457, guid: 0ad645a1471d3c04c9f92e29300b717f, type: 3}
+      propertyPath: saveController
+      value: 
+      objectReference: {fileID: 593060073}
     - target: {fileID: 8470488168099267250, guid: 0ad645a1471d3c04c9f92e29300b717f, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -16921,6 +16937,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8470488168099267250, guid: 0ad645a1471d3c04c9f92e29300b717f, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8621996092216508163, guid: 0ad645a1471d3c04c9f92e29300b717f, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8954423374929983075, guid: 0ad645a1471d3c04c9f92e29300b717f, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: OnContinueButtonClicked
+      objectReference: {fileID: 0}
+    - target: {fileID: 9059998552777748048, guid: 0ad645a1471d3c04c9f92e29300b717f, type: 3}
+      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
