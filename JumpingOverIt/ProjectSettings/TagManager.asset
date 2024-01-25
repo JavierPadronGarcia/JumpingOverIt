@@ -8,6 +8,7 @@ TagManager:
   - Coin
   - PlayerObjects
   - FallDetector
+  - SaveGameList
   layers:
   - Default
   - TransparentFX

@@ -20,6 +20,7 @@ public class CardController : MonoBehaviour
     public void OnDeleteSaveGameClick()
     {
         saveService.DeleteSave(saveName);
+        Destroy(gameObject);
     }
 
     public void OnLoadSavedGame()
