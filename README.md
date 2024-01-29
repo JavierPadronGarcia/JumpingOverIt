@@ -76,7 +76,7 @@ If you don't have node js <a href='https://nodejs.org/en'>click here</a> to inst
 
 Javier Padrón García -- padrongarciajavier04@gmail.com
 
-Project Link: [https://github.com/JavierPadronGarcia/EcoAreas.git](https://github.com/JavierPadronGarcia/JumpingOverIt)
+Project Link: [https://github.com/JavierPadronGarcia/JumpingOverIt](https://github.com/JavierPadronGarcia/JumpingOverIt)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
